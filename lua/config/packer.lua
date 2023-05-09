@@ -15,7 +15,14 @@ return require('packer').startup(function(use)
 	}
 	-- Colour theme
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
-	vim.cmd('colorscheme rose-pine')
+    use ('folke/tokyonight.nvim')
+	vim.cmd('colorscheme tokyonight-moon')
+
+    -- Lua Line
+    use{
+        'nvim-lualine/lualine.nvim',
+        requires = {'nvim-tree/nvim-web-devicons', opt = true}
+    }
 
 	-- Tree Sitter
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -47,6 +54,10 @@ return require('packer').startup(function(use)
 
 		-- Autocompletion
 		{'hrsh7th/nvim-cmp'},     -- Required
+		{'hrsh7th/cmp-buffer'},   -- added
+		{'hrsh7th/cmp-path'},     -- added
+		{'hrsh7th/cmp-nvim-lua'}, -- added
+		{'rafamadriz/friendly-snippets'}, -- added
 		{'hrsh7th/cmp-nvim-lsp'}, -- Required
 		{'L3MON4D3/LuaSnip'},     -- Required
 		}
